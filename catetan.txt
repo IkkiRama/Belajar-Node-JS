@@ -1,0 +1,3 @@
+Core Modules merupakan Modules yang dibuat oleh node JS nya
+Local Modules merupakan Modules yang dibuat oleh diri sendiri
+Third Party Modules merupakan Modules yang dari NPM
