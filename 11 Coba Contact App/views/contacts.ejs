@@ -1,0 +1,108 @@
+<div class="container my-5">
+    <h1>Daftar Contact</h1>
+
+    <button type="button" class="btn btn-primary mb-2" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+        Tambah Contact
+    </button>
+
+    <% if (typeof errors !== "undefined") { %>
+    <div class="alert alert-danger">
+        Terdapat error diform, yaitu :
+        <ul>
+            <% errors.forEach(error => { %>
+            <li><strong><%= error.msg %></strong></li>
+            <% }) %>
+        </ul>
+    </div>
+    <% } %>
+
+    <% if (success.length !== 0) { %>
+    <div class="alert alert-success">
+        <%= success %>
+    </div>
+    <% } %>
+
+    <% if (error.length !== 0) { %>
+    <div class="alert alert-danger">
+        <%= error %>
+    </div>
+    <% } %>
+
+
+    <% if (contacts.length === 0) { %>
+    <div class="alert alert-danger">
+        Tidak ada data kontak
+    </div>
+    <% } else { %>
+    <table class="table table-bordered table-hover table-striped my-3">
+        <thead class="table-dark">
+            <tr>
+                <th>No</th>
+                <th>Nama</th>
+                <th>No HP</th>
+                <th>Aksi</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% contacts.forEach((contact, id) => { %>
+            <tr>
+                <td><%= id+1 %></td>
+                <td><%= contact.nama %></td>
+                <td><%= contact.noHp %></td>
+                <td>
+                    <a href="/contact/<%= contact.nama %>" class="btn btn-primary">Detail</a>
+                    <a href="/contact/edit/<%= contact.nama %>" class="btn btn-warning">Ubah</a>
+                    <a href="/contact/hapus/<%= contact.nama %>" class="btn btn-danger">Hapus</a>
+                </td>
+            </tr>
+            <% }) %>
+        </tbody>
+
+    </table>
+    <% } %>
+
+</div>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Tambah Contact</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/contact">
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Nama Lengkap</label>
+                        <input required type="text" name="nama" class="form-control" id="nama"
+                            placeholder="Masukkan nama anda...">
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" name="email" class="form-control" id="email"
+                            placeholder="Masukkan email anda">
+                    </div>
+                    <div class="mb-3">
+                        <label for="noHp" class="form-label">No HP</label>
+                        <input required type="number" name="noHp" class="form-control" id="noHp"
+                            placeholder="Masukkan no Hp anda">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="alamat" class="form-label">Alamat</label>
+                        <textarea name="alamat" id="alamat" cols="30" rows="5" class="form-control"
+                            style="resize: none;" placeholder="Masukkan alamat anda"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Tambah</button>
+                </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>

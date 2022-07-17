@@ -1,0 +1,41 @@
+<div class="container my-3">
+    <h1>Edit Data <%= contact.nama %> </h1>
+
+    <% if (typeof errors !== "undefined") { %>
+    <div class="alert alert-danger">
+        Terdapat error diform, yaitu :
+        <ul>
+            <% errors.forEach(error => { %>
+            <li><strong><%= error.msg %></strong></li>
+            <% }) %>
+        </ul>
+    </div>
+    <% } %>
+
+    <form method="post" action="/contact/edit/<%= contact.oldNama || contact.nama %>?id=<%= contact.id %>">
+        <div class="mb-3">
+            <label for="nama" class="form-label">Nama Lengkap</label>
+            <input value="<%= contact.nama %>" required type="text" name="nama" class="form-control" id="nama"
+                placeholder="Masukkan nama anda...">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input value="<%= contact.email %>" type="email" name="email" class="form-control" id="email"
+                placeholder="Masukkan email anda">
+        </div>
+        <div class="mb-3">
+            <label for="noHp" class="form-label">No HP</label>
+            <input value="<%= contact.noHp %>" required type="number" name="noHp" class="form-control" id="noHp"
+                placeholder="Masukkan no Hp anda">
+        </div>
+
+        <div class="mb-3">
+            <label for="alamat" class="form-label">Alamat</label>
+            <textarea name="alamat" id="alamat" cols="30" rows="5" class="form-control" style="resize: none;"
+                placeholder="Masukkan alamat anda"><%= contact.alamat %></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-warning">Ubah</button>
+    </form>
+
+</div>
