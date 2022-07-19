@@ -1,0 +1,32 @@
+<div class="container my-5">
+    <h1>Detail Contact dari <%= contact.nama %> </h1>
+
+    <% if (!contact) { %>
+    <div class="alert alert-danger"><%= contact %>. <a href="/contact" class="alert-link">Back to contacts</a></div>
+    <% } else { %>
+    <table class="table table-hover table-striped my-3">
+        <tr>
+            <th>Nama : </th>
+            <td><%= contact.nama %> </td>
+        </tr>
+
+        <tr>
+            <th>Email : </th>
+            <td><%= contact.email %> </td>
+        </tr>
+
+        <tr>
+            <th>No Hp : </th>
+            <td><%= contact.noHp %> </td>
+        </tr>
+
+        <tr>
+            <th>Alamat : </th>
+            <td><%= contact.alamat %> </td>
+        </tr>
+    </table>
+
+    <a href="/contact" class="btn btn-primary">Kembali</a>
+    <% } %>
+
+</div>
