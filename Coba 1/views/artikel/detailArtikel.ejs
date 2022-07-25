@@ -1,0 +1,27 @@
+<h2>Detail Artikel <%= artikel.title %></h2>
+
+<table class="table table-borderles">
+    <tr>
+        <th>Title</th>
+        <td>: <%= artikel.title %></td>
+    </tr>
+    <tr>
+        <th>Author</th>
+        <td>: <%= artikel.author %></td>
+    </tr>
+    <tr>
+        <th>Body</th>
+        <td>: <%= artikel.body %></td>
+    </tr>
+    <tr>
+        <th>Aksi</th>
+        <td>
+            <a href="/artikel/ubah/<%= artikel.title %>" class="btn btn-warning">Ubah</a>
+            <form class="d-inline" action="/artikel/hapus/<%= artikel.title %>" method="post">
+                <button class="btn btn-danger" onclick="return confirm('Anda yakin?')">Hapus</button>
+            </form>
+        </td>
+    </tr>
+</table>
+
+<a href="/artikel" class="btn btn-primary">Kembali</a>

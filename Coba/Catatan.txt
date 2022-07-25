@@ -1,0 +1,4 @@
+untuk membuat web server menggunakan node js pakai modul http
+
+
+EJS View itu relative path nya terhadap folder view

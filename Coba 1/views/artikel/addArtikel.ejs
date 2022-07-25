@@ -1,0 +1,32 @@
+<h1>Tambah Artikel</h1>
+
+<% if (errors !== "") { %>
+<div class="alert alert-danger">
+    Anda memiliki error di :
+    <ul>
+        <% errors.forEach(err => { %>
+        <li><strong><%= err.msg %></strong></li>
+        <% }) %>
+    </ul>
+</div>
+<% } %>
+
+<form method="post" action="/artikel/add">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" name="title">
+    </div>
+
+
+    <div class="mb-3">
+        <label for="author" class="form-label">Author</label>
+        <input type="text" class="form-control" id="author" name="author">
+    </div>
+
+    <div class="mb-3">
+        <label for="body" class="form-label">Body</label>
+        <textarea name="body" id="body" cols="30" rows="5" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

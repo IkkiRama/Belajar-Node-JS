@@ -1,0 +1,28 @@
+<aside>
+    <div class="profil">
+        <img src="img/img1.jpg" alt="img user">
+        <p>Rifki Romadhan</p>
+    </div>
+
+    <a href="/" class="perMenu <%= isActive === "home" ? "active" : "" %>">
+        <div class="icon">
+            <i class="fas fa-home"></i>
+        </div>
+        <p>Home</p>
+    </a>
+
+    <a href="/books" class="perMenu <%= isActive === "books" ? "active" : "" %>">
+        <div class="icon">
+            <i class="fas fa-book"></i>
+        </div>
+        <p>Buku</p>
+    </a>
+
+    <a href="" class="perMenu">
+        <div class="icon">
+            <i class="fas fa-sign-out-alt"></i>
+        </div>
+        <p>Logout</p>
+    </a>
+
+</aside>

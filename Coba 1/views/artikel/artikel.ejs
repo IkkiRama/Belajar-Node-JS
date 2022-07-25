@@ -1,0 +1,38 @@
+<h1>Daftar Artikel</h1>
+
+<% if (success.length !== 0) { %>
+<div class="alert alert-success">
+    <%= success %>
+</div>
+<% } %>
+
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Title</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (artikel.length === 0) { %>
+        <tr>
+            <td colspan="4">
+                <h1 class="text-center">Tidak Ada Data</h1>
+            </td>
+        </tr>
+        <% } else { %>
+        <% artikel.forEach((item, id) => { %>
+        <tr>
+            <td><%= id+1 %> </td>
+            <td><%= item.title %> </td>
+            <td>
+                <a href="/artikel/<%= item.title %>" class="btn btn-primary">Detail</a>
+            </td>
+        </tr>
+        <% }) %>
+        <% } %>
+    </tbody>
+</table>

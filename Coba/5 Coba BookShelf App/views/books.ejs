@@ -1,0 +1,88 @@
+<main>
+    <h2>Selamat Datang Di Bookshelf Apps</h2>
+
+    <form action="" class="mt-50">
+        <div class="form-group">
+            <label for="search">Cari Buku</label>
+            <div class="input-group mt-20">
+                <input type="text" id="inputSearch" placeholder="Cari Buku yang anda cari...">
+                <button id="btnSearch" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+        </div>
+        <button class="mt-20 btn btn-primary" id="modalToggle">Tambah Buku</button>
+        <button class="mt-20 btn btn-danger" id="removeAll" type="submit">Hapus Semua Buku</button>
+    </form>
+
+
+    <div class="daftarBuku">
+
+        <article>
+            <h3>Buku belum selesai dibaca</h3>
+            <div id="belumDiBaca">
+                <% belumSelesaiDibaca.forEach(item => { %>
+                <div class="perBuku">
+                    <h4><%= item.title %> </h4>
+                    <p>Penulis : <%= item.author %> </p>
+                    <p>Tahun : <%= item.date %> </p>
+
+                    <div class="">
+                        <button class="btn btn-primary btn-sm" id="btnSelesaiDibaca"
+                            onclick="changeStatus(item._id)">Selesai Dibaca</button>
+
+                        <button class="btn btn-warning btn-sm" id="btnEditBuku" onclick="editBuku(item._id)">Edit
+                            buku</button>
+
+                        <button class="btn btn-danger btn-sm" id="btnHapusBuku" onclick="hapusBuku(item._id)">Hapus
+                            buku</button>
+                    </div>
+
+                </div>
+                <% }) %>
+            </div>
+        </article>
+
+        <article>
+            <h3>Buku selesai dibaca</h3>
+            <div id="sudahDiBaca"></div>
+        </article>
+    </div>
+
+</main>
+
+<div class="modal-overlay">
+    <div class="modal">
+        <div class="modal-header">
+            <h2>Tambah Buku</h2>
+            <span class="close">&times;</span>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="form-group">
+                    <label for="title">Judul</label>
+                    <input required aria-required="false" type="text" id="title">
+                </div>
+
+                <div class="form-group">
+                    <label for="author">Penulis</label>
+                    <input required type="text" id="author">
+                </div>
+
+                <div class="form-group">
+                    <label for="year">Tahun</label>
+                    <input required type="number" id="year">
+                </div>
+
+                <br>
+                <label for="checkboxSelesaiDibaca">Selesai dibaca</label>
+                <input type="checkbox" id="checkboxSelesaiDibaca">
+                <br>
+                <br>
+
+                <button class="btn btn-primary" onclick="addData(event)" id="add" type="submit">Tambah</button>
+                <button class="btn btn-warning" id="update" type="submit" style="display: none;">Update</button>
+            </form>
+        </div>
+    </div>
+</div>

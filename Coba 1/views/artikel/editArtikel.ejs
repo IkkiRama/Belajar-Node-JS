@@ -1,0 +1,21 @@
+<h1>Edit Artikel <%= artikel.title %></h1>
+
+<form method="POST" action="/artikel/ubah?id=<%= artikel.id %>">
+    <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="title" value="<%= artikel.title %>" name="title">
+    </div>
+
+
+    <div class="mb-3">
+        <label for="author" class="form-label">Author</label>
+        <input type="text" class="form-control" id="author" value="<%= artikel.author %>" name="author">
+    </div>
+
+    <div class="mb-3">
+        <label for="body" class="form-label">Body</label>
+        <textarea name="body" id="body" cols="30" rows="5" class="form-control"><%= artikel.body %></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-warning">Edit</button>
+</form>
